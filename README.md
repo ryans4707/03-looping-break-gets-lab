@@ -43,39 +43,6 @@ After we discuss when NOT to use the `break` keyword, we will show you how to ge
 
 The use of the `break` keyword is generally avoided. In upcoming lessons, we'll learn how to write more elegant, self-explanatory loops that *don't* require `break`-ing. It is important to understand how `break` works, however, and it is useful in command line applications. 
 
-# Gets
-
-The `gets` method accepts a single line of data from the standard input - the keyboard in this case. Then, your program can assign that value to a variable. 
-
-**Note On Standard Input:** *The standard input is a default stream supplied by many operating systems that relates to the standard way to accept input from the user. In our case, the standard input is the keyboard. For now, just think of the standard input as what our user types into the terminal.*
-
-We're going to play with method `greeting` that uses `puts` to ask a user for their name. Then, their response that they type into the terminal will be stored in a variable via the `gets` method. Then, the `greeting` method will proceed to `puts` a greeting: "Your name is < name >"
-
-Copy and paste the following into IRB: 
-
-```ruby
-def greeting
-	puts "Please type your name:"
-	name = gets
-	puts "Your name is #{name}!"
-end
-
-greeting 
-```
-
-##### About `.chomp`
-
-The `gets` method, used without `.chomp`, appends a new line to the data you are using it to "get". We don't want a new line! If we preserved our new line by failing to use `.chomp`, the final output of the `greeting` method would look like this: 
-
-```ruby 
-"Your name is <name>
-!"
-```
-
-The `.chomp` method removes that new line for us. 
-
-Now we'll return to our previous example using `break` and `gets`. 
-
 ## Our Annoying Program
 
 Let's think about our example from earlier. We want a program that continuously outputs "Whats up, Doc?" until the user can't take it anymore and finally inputs "STOP". In other words, we need to create a *loop* that will continue to ask the user "What's up, Doc?", but will *break* out of the loop when the user types in "STOP". 
@@ -138,9 +105,7 @@ Let's break this down. We have a method, called `annoying`, that contains a loop
 Fork and clone this lab. Read the below explanation and run the test suite to get started. 
 
 * Okay, now that we've mastered feather levitation, we're ready for the levitation quiz! Fill out the content of the method `levitation_quiz` so that it contains a loop that asks the user "What is the spell that enacts levitation?" It should then store the answer in a variable called `answer` using the `gets.chomp` method. The loop should `break` if the user's answer is "Wingardium Leviosa". When the loop breaks, our method should `puts` "You passed the quiz!" Otherwise, the loop should continue. 
-* **Important:** The Learn gem cannot interact with `gets.chomp` in the command line. To get your tests passing when you run `learn`, make sure you are *not* calling the method you define anywhere in `levitation_quiz.rb`. You can call the method and run the program with `ruby levitation_quiz.rb` to play with your program and see it working, but to run the tests with `learn`, comment out or delete the line where you call the method. 
 
 
 
-
-<a href='https://learn.co/lessons/looping-break-gets' data-visibility='hidden'>View this lesson on Learn.co</a>
+* **Important:** The Learn gem cannot interact with `gets.chomp` in the command line. To get your tests passing when you run `rspec`, make sure you are *not* calling the method you define anywhere in `levitation_quiz.rb`. You can call the method and run the program with `ruby levitation_quiz.rb` to play with your program and see it working, but to run the tests with `rspec`, comment out or delete the line where you call the method. 
